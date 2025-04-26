@@ -24,7 +24,8 @@ module.exports.setpost = async (req, res) => {
         classe,
         ajouteur: req.user.id,
         date,
-        fichier: req.file ? req.file.path : null
+        fichier: req.file ? req.file.filename : null
+
       });
   
       res.status(201).json(nouvelleEpreuve);

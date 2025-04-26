@@ -4,6 +4,24 @@ const connectDB = require("./config/db");
 const app = express();
 const port = 5000;
 
+/*{
+    origin: 'http://localhost:5173',
+    credentials: true
+  }*/
+
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
+    
+const cors = require('cors');
+app.use(cors()); // autorise toutes les origines (en dev)
+
+
+const path = require('path');
+// Servir les fichiers statiques du dossier uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Connexion à la base de données
 connectDB();
 
@@ -22,4 +40,4 @@ const swaggerSpec = require("./swagger");
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Lancement du serveur
-app.listen(port, () => console.log(`✅ Serveur démarré sur le port ${port}`));
+app.listen(port, () => console.log(` Serveur démarré sur le port ${port}`));
