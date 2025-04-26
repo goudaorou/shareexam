@@ -18,7 +18,7 @@ const cors = require('cors');
 app.use(cors()); // autorise toutes les origines (en dev)
 
 
-const path = require('path');
+//const path = require('path');
 // Servir les fichiers statiques du dossier uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
