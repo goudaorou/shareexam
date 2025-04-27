@@ -39,8 +39,8 @@ app.use("/api/auth", require("./routes/userroute"));
 
 
 // Routes API normales
-app.use('/auth', require('./routes/authRoutes'));
-app.use('/epreuve', require('./routes/epreuveRoutes'));
+/*app.use('/auth', require('./routes/authRoutes'));
+app.use('/epreuve', require('./routes/epreuveRoutes'));*/
 
 // Swagger documentation
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
