@@ -33,11 +33,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/epreuve", require("./routes/epreuveroute"));
 app.use("/api/auth", require("./routes/userroute"));
 
+
+const swaggerDocument = require('./swagger.json'); // ou ton fichier swagger
+
+
+
+// Routes API normales
+app.use('/auth', require('./routes/authRoutes'));
+app.use('/epreuve', require('./routes/epreuveRoutes'));
+
+// Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
+
 // Swagger Docs
 const swaggerUi = require("swagger-ui-express");
-const swaggerSpec = require("./swagger");
+//const swaggerSpec = require("./swagger");
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+//app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Lancement du serveur
 app.listen(port, () => console.log(` Serveur démarré sur le port ${port}`));
