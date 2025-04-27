@@ -20,7 +20,7 @@ app.use(cors()); // autorise toutes les origines (en dev)
 
 //const path = require('path');
 // Servir les fichiers statiques du dossier uploads
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+//app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connexion à la base de données
 connectDB();
@@ -34,8 +34,8 @@ app.use("/epreuve", require("./routes/epreuveroute"));
 app.use("/api/auth", require("./routes/userroute"));
 
 
-const swaggerDocument = require('./swagger.json'); // ou ton fichier swagger
-
+/*const swaggerDocument = require('./swagger.json'); // ou ton fichier swagger
+*/
 
 
 // Routes API normales
@@ -43,12 +43,12 @@ app.use('/auth', require('./routes/authRoutes'));
 app.use('/epreuve', require('./routes/epreuveRoutes'));
 
 // Swagger documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 
 // Swagger Docs
-const swaggerUi = require("swagger-ui-express");
+//const swaggerUi = require("swagger-ui-express");
 //const swaggerSpec = require("./swagger");
 
 //app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
